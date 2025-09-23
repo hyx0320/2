@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>交互式视频问答 Demo</title>
+    <!-- 外部样式：将页面样式与结构分离，便于维护与复用 -->
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- 视频元素：使用 preload="metadata" 仅加载元数据，加快初始渲染 -->
+        <video id="video" controls preload="metadata">
+            <source src="./video/movie.mp4" type="video/mp4" />
+            您的浏览器不支持 HTML5 视频。
+        </video>
+
+        <!-- 问答区域：用于承载问题卡片（JS 动态渲染） -->
+        <div class="qa" id="qa-container" aria-live="polite" aria-label="视频问答区域">
+            <p class="notice">提示：点击下面的选项可跳转到视频对应时间点。</p>
+        </div>
+    </div>
+
+    <!-- 外部脚本：包含渲染问题与时间跳转的逻辑。defer 确保 DOM 解析后再执行 -->
+    <script src="./js/app.js" defer></script>
+</body>
+</html>
