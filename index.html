@@ -3,25 +3,145 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>交互式视频问答 Demo</title>
-    <!-- 外部样式：将页面样式与结构分离，便于维护与复用 -->
+    <title>元舟 | 欢迎</title>
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- 视频元素：使用 preload="metadata" 仅加载元数据，加快初始渲染 -->
-        <video id="video" controls preload="metadata">
-            <source src="./video/movie.mp4" type="video/mp4" />
-            您的浏览器不支持 HTML5 视频。
-        </video>
-
-        <!-- 问答区域：用于承载问题卡片（JS 动态渲染） -->
-        <div class="qa" id="qa-container" aria-live="polite" aria-label="视频问答区域">
-            <p class="notice">提示：点击下面的选项可跳转到视频对应时间点。</p>
+    <!-- 站点头部导航 -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">元舟</div>
+            <nav class="nav">
+                <a href="./index.html" class="nav-link is-active">首页</a>
+                <a href="./hospital.html" class="nav-link">去医院就诊</a>
+                <a href="./hospital.html" class="nav-link">第一次坐飞机</a>
+                <a href="./hospital.html" class="nav-link">第一次体检</a>
+                <!-- 未来可新增：<a href="./air-travel.html" class="nav-link">第一次坐飞机</a> -->
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- 外部脚本：包含渲染问题与时间跳转的逻辑。defer 确保 DOM 解析后再执行 -->
-    <script src="./js/app.js" defer></script>
+    <!-- Hero 欢迎区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">帮助你从容应对人生的“第一次”</h1>
+            <p class="hero-subtitle">我们用简洁的引导与短视频，带你一步步走过陌生场景：去医院独自就诊、第一次坐飞机、第一次体检……</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="./hospital.html">开始：独自就诊引导</a>
+                <a class="btn btn-secondary" href="#scenes">浏览更多场景</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 欢迎页：用户问候与能力标签 -->
+    <section class="container">
+        <div class="profile-card">
+            <div class="avatar">Hi</div>
+            <div>
+                <div class="hello">Hi，欢迎来到元舟</div>
+                <div class="chips">
+                    <span class="chip">引导视频</span>
+                    <span class="chip">步骤清晰</span>
+                    <span class="chip alt">适合新手</span>
+                    <span class="chip alt">线下场景</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 横幅/轮播（可左右拖动） -->
+        <div class="banner">
+            <div class="carousel" id="home-carousel">
+                <div class="slide">
+                    <a href="./hospital.html" aria-label="去医院就诊">
+                        <img src="./images/第一次去医院.png" alt="就医全流程 · 熟悉每一步" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="#" aria-label="第一次坐飞机（预告）">
+                        <img src="./images/飞机托运.png" alt="坐飞机不迷路 · 值机/安检/登机" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="#" aria-label="体检准备（预告）">
+                        <img src="./images/体检单.png" alt="体检准备 · 注意事项与流程" style="width:100%;height:100%;object-fit:cover;border-radius:16px;" />
+                    </a>
+                </div>
+            </div>
+            <div class="arrow-btn">
+                <button class="circle-btn" data-role="carousel-prev" aria-label="上一张">‹</button>
+                <button class="circle-btn" data-role="carousel-next" aria-label="下一张">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 场景入口卡片 -->
+    <main class="container" id="scenes">
+        <h2 class="section-title">可用场景</h2>
+        <div class="grid">
+            <a class="card" href="./hospital.html" aria-label="去医院就诊场景">
+                <div class="card-badge">医疗</div>
+                <h3 class="card-title">去医院就诊</h3>
+                <p class="card-desc">从挂号到取药，交互式视频带你熟悉每一步，遇到分岔点可直接跳到相关讲解。</p>
+            </a>
+            <a class="card" href="#" aria-label="第一次坐飞机（敬请期待）">
+                <div class="card-badge">出行</div>
+                <h3 class="card-title">第一次坐飞机（预告）</h3>
+                <p class="card-desc">值机、安检、登机流程解读，常见问题逐个过。</p>
+            </a>
+            <!-- 预留更多卡片
+            <a class="card disabled" href="#">
+                <div class="card-badge">出行</div>
+                <h3 class="card-title">第一次坐飞机（敬请期待）</h3>
+                <p class="card-desc">值机、安检、登机流程解读，常见问题逐个过。</p>
+            </a>
+            -->
+        </div>
+
+        <!-- 指标概览与推荐（示意） -->
+        <div class="metrics">
+            <div class="metric"><div class="val">175.0</div><div class="sub">身高(cm)</div></div>
+            <div class="metric"><div class="val">68.0</div><div class="sub">体重(kg)</div></div>
+            <div class="metric"><div class="val">15.0</div><div class="sub">体脂(%)</div></div>
+            <div class="metric"><div class="val">30.0</div><div class="sub">BMI</div></div>
+        </div>
+
+        <div class="feed">
+            <div class="feed-card">
+                <a class="cover" href="./hospital.html" aria-label="场景推荐 · 就医指引">
+                    <img src="./images/就医引导.png" alt="场景推荐 · 就医指引" />
+                </a>
+                <div class="info">
+                    <div>从挂号、候诊到复诊取药，逐步讲解</div>
+                    <div class="tags">低焦虑 · 步骤化 · 新手友好</div>
+                </div>
+            </div>
+            <div class="feed-card">
+                <a class="cover" href="#" aria-label="场景推荐 · 航空出行（预告）">
+                    <img src="./images/坐飞机.png" alt="场景推荐 · 航空出行" />
+                </a>
+                <div class="info">
+                    <div>值机/安检/登机/行李提取，快速熟悉流程</div>
+                    <div class="tags">路线清晰 · 常见坑提醒</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">© 2025 元舟 · 帮你从容面对每一个第一次</div>
+    </footer>
+
+    <!-- 可选：移动端底部 Tabbar 风格 -->
+    <nav class="tabbar" aria-label="底部导航">
+        <div class="tab-inner">
+            <a class="active" href="./index.html">首页</a>
+            <a href="./hospital.html">就医引导</a>
+            <a href="#">健康管理</a>
+            <a href="#">社区互动</a>
+        </div>
+    </nav>
+
+    <!-- 首页轮播按钮控制脚本 -->
+    <script src="./js/home.js" defer></script>
 </body>
 </html>

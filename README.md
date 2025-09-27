@@ -2,17 +2,27 @@
 
 本示例展示了如何在网页中播放视频，并在下方显示问题与选项。点击选项会将视频跳转到指定的时间点。
 
-## 结构
+## 页面与文件结构
 
 ```
 index.html
+hospital.html
+css/
+  styles.css
+js/
+  app.js
 video/
   movie.mp4
 ```
 
+- `index.html`：欢迎/导航首页，介绍项目理念并提供场景入口。
+- `hospital.html`：去医院就诊场景页（包含交互式视频问答）。
+- `css/styles.css`：通用与页面样式，含导航、Hero、卡片与问答样式。
+- `js/app.js`：渲染问题与时间跳转逻辑，含注释与可配置 `questions` 数组。
+
 ## 修改题目与时间
 
-打开 `index.html`，在脚本中找到 `questions` 数组：
+打开 `js/app.js`，在脚本中找到 `questions` 数组：
 
 ```js
 const questions = [
@@ -38,7 +48,7 @@ const questions = [
 
 ## 运行
 
-直接双击打开 `index.html` 即可在浏览器中查看效果。若视频无法加载，请确认：
+直接双击打开 `index.html` 作为首页，点击“去医院就诊”进入 `hospital.html` 观看交互视频。若视频无法加载，请确认：
 
 - `video/movie.mp4` 文件存在且能被浏览器播放（H.264 编码兼容性最佳）。
 - 路径区分大小写是否一致。

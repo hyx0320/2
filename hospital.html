@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>元舟 | 去医院就诊</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-scene="hospital">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">元舟</div>
+      <nav class="nav">
+        <a href="./index.html" class="nav-link">首页</a>
+        <a href="./hospital.html" class="nav-link is-active">去医院就诊</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container overlay-controls">
+    <!-- 视频元素：使用 preload="metadata" 仅加载元数据，加快初始渲染 -->
+    <video id="video" controls preload="metadata" controlslist="nofullscreen">
+      <source src="./video/movie.mp4" type="video/mp4" />
+      您的浏览器不支持 HTML5 视频。
+    </video>
+
+    <!-- 问答区域：悬浮在视频上方（JS 动态渲染问题卡片） -->
+    <div class="qa qa-overlay" id="qa-container" aria-live="polite" aria-label="视频问答区域">
+    </div>
+    <!-- 浮动控制：快退/快进 与 自定义全屏（保证问题在全屏时可见） -->
+    <div class="floating" aria-label="视频浮动控制">
+      <button class="circle-btn" id="jump-back" title="后退15秒">«</button>
+      <button class="circle-btn" id="jump-forward" title="前进15秒">»</button>
+      <button class="circle-btn" id="btn-fullscreen" title="全屏观看">⛶</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">© 2025 元舟 · 医疗就诊引导</div>
+  </footer>
+
+  <script src="./js/app.js" defer></script>
+</body>
+</html>
