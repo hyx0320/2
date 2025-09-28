@@ -9,7 +9,10 @@
 <body data-scene="hospital">
   <header class="site-header">
     <div class="container header-inner">
-      <div class="brand">元舟</div>
+      <a class="brand" href="./index.html" aria-label="元舟 首页">
+        <img src="./images/商标.png" alt="元舟商标" class="brand-logo" />
+        <span class="brand-name">元舟</span>
+      </a>
       <nav class="nav">
         <a href="./index.html" class="nav-link">首页</a>
         <a href="./hospital.html" class="nav-link is-active">去医院就诊</a>
@@ -17,22 +20,53 @@
     </div>
   </header>
 
-  <div class="container overlay-controls">
-    <!-- 视频元素：使用 preload="metadata" 仅加载元数据，加快初始渲染 -->
-    <video id="video" controls preload="metadata" controlslist="nofullscreen">
-      <source src="./video/movie.mp4" type="video/mp4" />
-      您的浏览器不支持 HTML5 视频。
-    </video>
+  <div class="container scene-layout">
+    <div class="overlay-controls">
+      <!-- 视频元素：使用 preload="metadata" 仅加载元数据，加快初始渲染 -->
+      <video id="video" controls preload="metadata" controlslist="nofullscreen">
+        <source src="./video/movie.mp4" type="video/mp4" />
+        您的浏览器不支持 HTML5 视频。
+      </video>
 
-    <!-- 问答区域：悬浮在视频上方（JS 动态渲染问题卡片） -->
-    <div class="qa qa-overlay" id="qa-container" aria-live="polite" aria-label="视频问答区域">
+      <!-- 问答区域：悬浮在视频上方（JS 动态渲染问题卡片） -->
+      <div class="qa qa-overlay" id="qa-container" aria-live="polite" aria-label="视频问答区域">
+      </div>
+      <!-- 浮动控制：快退/快进 与 自定义全屏（保证问题在全屏时可见） -->
+      <div class="floating" aria-label="视频浮动控制">
+        <button class="circle-btn" id="jump-back" title="后退15秒">«</button>
+        <button class="circle-btn" id="jump-forward" title="前进15秒">»</button>
+        <button class="circle-btn" id="btn-fullscreen" title="全屏观看">⛶</button>
+      </div>
     </div>
-    <!-- 浮动控制：快退/快进 与 自定义全屏（保证问题在全屏时可见） -->
-    <div class="floating" aria-label="视频浮动控制">
-      <button class="circle-btn" id="jump-back" title="后退15秒">«</button>
-      <button class="circle-btn" id="jump-forward" title="前进15秒">»</button>
-      <button class="circle-btn" id="btn-fullscreen" title="全屏观看">⛶</button>
-    </div>
+
+    <!-- 右侧信息侧栏（桌面端显示） -->
+    <aside class="scene-aside" aria-label="就诊流程与提示">
+      <div class="aside-card">
+        <h4>就诊流程</h4>
+        <ul class="aside-list">
+          <li><span class="dot"></span> 挂号 / 取号</li>
+          <li><span class="dot"></span> 候诊 / 叫号</li>
+          <li><span class="dot"></span> 医生问诊</li>
+          <li><span class="dot"></span> 化验 / 影像</li>
+          <li><span class="dot"></span> 取报告 / 复诊</li>
+          <li><span class="dot"></span> 取药 / 缴费</li>
+        </ul>
+      </div>
+
+      <div class="aside-card">
+        <h4>温馨提示</h4>
+        <div class="tip">带上身份证、医保卡；提前准备零钱或绑定支付；注意各科室位置。</div>
+      </div>
+
+      <div class="aside-card">
+        <h4>快速入口</h4>
+        <div class="tip">
+          <a class="badge" href="#" aria-label="常见问题">常见问题</a>
+          <a class="badge" href="#" aria-label="急诊指引">急诊指引</a>
+          <a class="badge" href="#" aria-label="化验注意">化验注意</a>
+        </div>
+      </div>
+    </aside>
   </div>
 
   <footer class="site-footer">
