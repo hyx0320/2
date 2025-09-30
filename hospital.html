@@ -73,6 +73,45 @@
     <div class="container footer-inner">© 2025 元舟 · 医疗就诊引导</div>
   </footer>
 
+  <!-- AI 对话窗口（页面底部） -->
+  <section class="container chat-wrap" aria-label="AI 对话">
+    <div class="chat-header">
+      <div class="title">就诊助手 · AI 对话</div>
+      <div class="tools">
+        <select id="available-model-select" class="select">
+          <option value="qwen3-235b-a22b">Qwen 3 235B a22b</option>
+          <option value="qwen-turbo-2025-04-28">Qwen Turbo 2025-04-28</option>
+          <option value="qwen-plus">Qwen Plus</option>
+          <option value="qwen-turbo" selected>Qwen Turbo</option>
+        </select>
+        <input type="password" id="api-key-input" class="input" placeholder="DashScope API Key（必填）" aria-label="API Key" />
+        <button id="btn-save-key" class="btn btn-secondary">保存密钥</button>
+      </div>
+    </div>
+
+    <div id="chat-messages" class="chat-messages" aria-live="polite">
+      <div class="msg ai">
+        <div class="bubble">
+          你好，我是就诊助手。你可以问：
+          <ul>
+            <li>怎么挂号、怎么找科室？</li>
+            <li>抽血化验要不要空腹？</li>
+            <li>检查结果怎么看？需要复诊吗？</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <form id="chat-form" class="chat-input" autocomplete="off">
+      <textarea id="chat-text" rows="2" placeholder="输入你的问题，例如：第一次自己去医院需要做哪些准备？" aria-label="聊天输入"></textarea>
+      <div class="actions">
+        <button type="button" id="btn-web" class="btn btn-secondary">联网搜索</button>
+        <button type="submit" id="btn-send" class="btn btn-primary">发送</button>
+      </div>
+    </form>
+  </section>
+
   <script src="./js/app.js" defer></script>
+  <script src="./js/chat.js" defer></script>
 </body>
 </html>
